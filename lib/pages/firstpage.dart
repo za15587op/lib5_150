@@ -12,7 +12,7 @@ class Firstpage extends StatefulWidget {
 
 class _FirstpageState extends State<Firstpage> {
   List<Food> foods = [];
-  String foodValue = "";
+  String foodValue = "เลือกอาหาร";
   @override
   void initState(){
     super.initState();
@@ -36,9 +36,11 @@ class _FirstpageState extends State<Firstpage> {
           onChanged: (value) {
             setState(() {
               foodValue = value!;
-              print(fd.thaifood);
             });
           })
+
+
+
       );
     }
 
@@ -52,7 +54,13 @@ class _FirstpageState extends State<Firstpage> {
         title: const Text('Food 150'),
       ),
       body: Column(
-        children: createRedioFood(),
+        children: [
+          Text("รายการอาหาร"),
+          Column(
+            children: createRedioFood(),
+          ),
+          Text(foodValue),
+        ],
       ),
     );
   }
